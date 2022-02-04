@@ -17,22 +17,47 @@
 </head>
 
 <body>
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+    <div class="header">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" id="auth_header">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto ms-5 text-dark text-decoration-none">
                 <span class="fs-4"><b>Meme</b></span>
             </a>
-
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a id="links" href="#" class="nav-link" aria-current="page">Запустить ракеты</a>
+                </li>
+                <li class="nav-item"><a id="links" href="index.html" class="nav-link">Открыть лендинг</a></li>
+                <li class="nav-item"><a id="links" href="#" class="nav-link">Попить чай</a></li>
             </ul>
         </header>
     </div>
-
+    <div class="auth_form">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="d-block text-center" id="substrate">
+                        <h1 class="mt-4 mb-4">Sign in</h1>
+                        <form action="#">
+                            <div class="container mb-4">
+                                <input type="email" class="fields" name="email" placeholder="Email" id="email">
+                            </div>
+                            <div class="container mb-4">
+                                <input type="password" class="fields" name="password" placeholder="Password"
+                                    id="password">
+                            </div>
+                            <div class="container d-flex justify-content-around ms-2 mb-0">
+                                <button type="submit" id="clicks">
+                                    <a href="index.html" id="forgot">Login</a>
+                                </button>
+                                <button type="submit" id="clicks">
+                                    <a href="#" id="forgot">Forgot password?</a> 
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

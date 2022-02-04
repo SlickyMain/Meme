@@ -12,6 +12,62 @@ p {
     font-size: large;
 }
 
+/* auth page */
+
+#links {
+    font-family: 'Playfair Display', serif;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#auth_header {
+    background-color: #ffffff;
+}
+
+
+.nav.nav-pills {
+    margin-right: 50px;
+}
+
+#substrate {
+    width: 400px;
+    height: 500px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+#forgot {
+    text-decoration: none;
+    color: black;
+}
+
+#email {
+    margin-top: 15%;
+}
+
+#clicks {
+    border-radius: 15px;
+    margin-right: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 3px 15px;
+    transition: .1s linear;
+}
+
+#clicks:hover {
+    color: black;
+    background-color: white;
+}
+
+.fields {
+    width: 90%;
+    padding: 15px 10px;
+    border-radius: 5px;
+}
+
+/* end auth page */
+/* main page */
 
 #props_icon {
     display: block;
@@ -51,3 +107,6 @@ svg {
     width: 980px;
     height: 820px;
 }
+
+
+
