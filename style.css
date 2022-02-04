@@ -7,7 +7,7 @@ h2 {
     font-size: 40px;
 }
 
-p {
+p, li {
     font-family: 'Playfair Display', serif;
     font-size: large;
 }
@@ -108,5 +108,18 @@ svg {
     height: 820px;
 }
 
+.accordion-button {
+    transition: .1s linear;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    
+}
 
+.accordion-button:hover {
+    color: plum
+}
 
+.accordion-button:not(.collapsed) {
+    background-color: white;
+    color: plum;
+}
