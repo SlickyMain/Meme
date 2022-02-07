@@ -127,13 +127,6 @@ p, li {
     text-align: center;
 }
 
-#props_text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 33%;
-}
-
 svg {
     border: 2px solid #332509; 
     line-height: 10px; 
