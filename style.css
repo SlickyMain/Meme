@@ -170,3 +170,24 @@ svg {
 footer {
     border-top: 1px solid #333
 }
+
+
+/* Sorted page */
+
+.mix {
+    background: cornsilk;
+}
+
+.mix-blocks {
+    height: 500px;
+    margin-top: 50px;
+    border: 1px solid black;
+    padding: 10px 15px;
+}
+
+.mix-buttons {
+    width: 80%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
