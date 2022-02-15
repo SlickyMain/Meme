@@ -98,6 +98,9 @@ function sortByAuthor() {
 }
 
 function sortByDate() {
+    for (value of listOfPosts) {
+        value.dateOfPost = new Date (value.dateOfPost)
+    }
     let sortedByAuthor = listOfPosts.sort((a, b) => a.dateOfPost > b.dateOfPost ? 1 : -1)
     insertInto(sortedByAuthor)
 }
