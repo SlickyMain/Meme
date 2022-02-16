@@ -195,9 +195,7 @@ footer {
 }
 
 .groupOfButtons {
-    display: flex;
     flex-direction: column;
-    position: absolute;
     left: 0px;
     top: 0px;
     width: 30%;
