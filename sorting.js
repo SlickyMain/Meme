@@ -33,7 +33,8 @@ function insertInto(completedArray) {
         let post = template.content.cloneNode(true)
         post.querySelector("h3").innerText = completedArray[i].author
         post.querySelector(".fieldForLike").innerText = completedArray[i].likes + " likes"
-        post.querySelector(".fieldForDate").innerText = completedArray[i].dateOfPost
+        post.querySelector(".fieldForDate").innerText = completedArray[i].dateOfPost.getDate() + "." + 
+        completedArray[i].dateOfPost.getMonth() + "." + completedArray[i].dateOfPost.getFullYear()
         parentNode.append(post)
     }
 }
