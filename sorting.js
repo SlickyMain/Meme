@@ -1,9 +1,21 @@
-var porcionOfPosts
-var listOfPosts = []
-var loadedAlready = 0
+let porcionOfPosts
+let listOfPosts = []
+let loadedAlready = 0
 const parentNode = document.getElementById("postField")
 const placeholdForCounter = "Количество элементов на странице: "
 const counter = document.getElementById("counter")
+
+document.querySelector("#sortAuthor").onclick = sortByAuthor
+document.querySelector("#sortLikes").onclick = sortByLikes
+document.querySelector("#sortDate").onclick = sortByDate
+
+window.onload = requestToServer()
+window.addEventListener("scroll", () => {
+    const docRect = document.documentElement.getBoundingClientRect()
+    if (docRect.bottom < document.documentElement.clientHeight + 200) {
+        requestToServer()
+    }
+})
 
 function requestToServer() {
     fetch("http://meme.gcqadev.ru/post.json")
@@ -18,10 +30,7 @@ function requestToServer() {
             kee.dateOfPost = new Date (kee.dateOfPost)
         }
         insertInto(value)
-        return listOfPosts
-    })
-    .then(itsArray => {
-        if (itsArray.length > 50) {
+        if (listOfPosts.length > 50) {
             deleteElems(porcionOfPosts)
             loadedAlready -= porcionOfPosts
         }
@@ -30,8 +39,7 @@ function requestToServer() {
 }
 
 function countElems (placehold) {
-    let displaysNow = parentNode.children.length
-    counter.innerHTML = placehold + displaysNow
+    counter.innerHTML = placehold + parentNode.children.length
 }
 
 function sortByAuthor() {
@@ -72,14 +80,3 @@ function insertInto(completedArray) {
     }
 }
 
-document.querySelector("#sortAuthor").onclick = sortByAuthor
-document.querySelector("#sortLikes").onclick = sortByLikes
-document.querySelector("#sortDate").onclick = sortByDate
-
-window.onload = requestToServer()
-window.addEventListener("scroll", () => {
-    const docRect = document.documentElement.getBoundingClientRect()
-    if (docRect.bottom < document.documentElement.clientHeight + 200) {
-        requestToServer()
-    }
-})
