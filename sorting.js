@@ -23,6 +23,7 @@ function requestToServer() {
         return res.json()
     })
     .then(value => {
+        console.log(value)
         listOfPosts.push(...value)
         porcionOfPosts = value.length
         loadedAlready += value.length
@@ -73,9 +74,8 @@ function insertInto(completedArray) {
     for (let i = 0; i < completedArray.length; i++) {
         let post = template.content.cloneNode(true)
         post.querySelector("h3").innerText = completedArray[i].author
-        post.querySelector(".fieldForLike").innerText = completedArray[i].likes + " likes"
-        post.querySelector(".fieldForDate").innerText = completedArray[i].dateOfPost.getDate() + "." + 
-        completedArray[i].dateOfPost.getMonth() + "." + completedArray[i].dateOfPost.getFullYear()
+        post.querySelector(".fieldForLike").innerText = `${completedArray[i].likes} likes`
+        post.querySelector(".fieldForDate").innerText = `${completedArray[i].dateOfPost.getDate()}.${completedArray[i].dateOfPost.getMonth()}.${completedArray[i].dateOfPost.getFullYear()}`
         parentNode.append(post)
     }
 }
