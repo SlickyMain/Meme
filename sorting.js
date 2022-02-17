@@ -1,5 +1,5 @@
 var porcionOfPosts
-var listOfPosts
+var listOfPosts = []
 var loadedAlready = 0
 const parentNode = document.getElementById("postField")
 const placeholdForCounter = "Количество элементов на странице: "
@@ -11,18 +11,20 @@ function requestToServer() {
         return res.json()
     })
     .then(value => {
-        if (!listOfPosts) {
-            listOfPosts = value
-            for (kee of value) {
-                kee.dateOfPost = new Date (kee.dateOfPost)
-            }
-        }
+        listOfPosts.push(...value)
         porcionOfPosts = value.length
         loadedAlready += value.length
-        for (kee of value) {
+        for (kee of listOfPosts) {
             kee.dateOfPost = new Date (kee.dateOfPost)
         }
         insertInto(value)
+        return listOfPosts
+    })
+    .then(itsArray => {
+        if (itsArray.length > 50) {
+            deleteElems(porcionOfPosts)
+            loadedAlready -= porcionOfPosts
+        }
         countElems(placeholdForCounter)
     })
 }
@@ -36,6 +38,7 @@ function sortByAuthor() {
     let sortedByAuthor = listOfPosts.sort((a, b) => a.author > b.author ? 1 : -1)
     document.getElementById("postField").innerHTML = ""
     insertInto(sortedByAuthor)
+    
 }
 
 function sortByDate() {
@@ -52,9 +55,9 @@ function sortByLikes() {
 
 function deleteElems(howMuch) {
     for (let i = 0; i < howMuch; i++) {
-        let fChild = document.querySelector(".mix-blocks")
-        fChild.remove()
+        parentNode.firstElementChild.remove()
     }
+    listOfPosts = listOfPosts.slice(howMuch, listOfPosts.length)
 }
 
 function insertInto(completedArray) {
@@ -76,11 +79,7 @@ document.querySelector("#sortDate").onclick = sortByDate
 window.onload = requestToServer()
 window.addEventListener("scroll", () => {
     const docRect = document.documentElement.getBoundingClientRect()
-    if (docRect.bottom < document.documentElement.clientHeight + 400) {
+    if (docRect.bottom < document.documentElement.clientHeight + 200) {
         requestToServer()
-    }
-    if (loadedAlready > 50) {
-        deleteElems(porcionOfPosts)
-        loadedAlready -= porcionOfPosts
     }
 })
