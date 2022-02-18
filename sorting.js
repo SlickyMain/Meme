@@ -26,7 +26,7 @@ function requestToServer() {
         listOfPosts.push(...value)
         porcionOfPosts = value.length
         loadedAlready += value.length
-        for (kee of listOfPosts) {
+        for (kee of value) {
             kee.dateOfPost = kee.dateOfPost.split(".", 3)
             kee.dateOfPost[2] = kee.dateOfPost[2].substr(0, 4)
             kee.dateOfPost = [kee.dateOfPost[2], kee.dateOfPost[1], kee.dateOfPost[0]]
