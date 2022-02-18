@@ -1,0 +1,112 @@
+body {
+    background-color: #FBBC04;
+}
+
+h3 {
+    font-family: Lobster;
+    font-size: 48px;
+    line-height: 60px;
+    color: #000000;
+}
+
+p, label {
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0rem;
+}
+
+a {
+    color: black;
+}
+
+li {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.registerText {
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.mainWrap {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.substrate {
+    width: 90%;
+    max-width: 500px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: white;
+    border-radius: 4px;
+}
+
+#registerButton, #avatarButton {
+    background-color: #FBBC04;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    max-height: 50px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.buttonText {
+    font-size: 20px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.icons {
+    width: 40px;
+    height: 40px;
+}
+
+.altText {
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: -0.33px;
+}
+
+.localeFlag {
+    width: 30px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+#dropdownMenuLink {
+    background: 0, 0, 0, 0;
+    border: 0px;
+    color: black;
+    text-decoration: underline;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+}
+
+.dropdown {
+    position: fixed;
+    bottom: 10px;
+}
+
+.dropdown-item {
+    text-decoration: underline;
+}
+
+#uploadInput {
+    border: 12px solid #FBBC04;
+    border-radius: 200px;
+    padding: 5px 5px 5px 5px;
+    height: 160px;
+    width: 160px;
+    background: url(assets/VK.png) no-repeat 3px 1px;
+    background-size: contain;
+    margin: 30px 0px;
+}

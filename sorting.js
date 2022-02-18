@@ -27,10 +27,9 @@ function requestToServer() {
         porcionOfPosts = value.length
         loadedAlready += value.length
         for (kee of value) {
-            kee.dateOfPost = kee.dateOfPost.split(".", 3)
+            kee.dateOfPost = kee.dateOfPost.split(".")
             kee.dateOfPost[2] = kee.dateOfPost[2].substr(0, 4)
-            kee.dateOfPost = [kee.dateOfPost[2], kee.dateOfPost[1], kee.dateOfPost[0]]
-            kee.dateOfPost = kee.dateOfPost.join("-")
+            kee.dateOfPost = [kee.dateOfPost[2], kee.dateOfPost[1], kee.dateOfPost[0]].join("-")
             kee.dateOfPost = new Date(kee.dateOfPost)
         }
         insertInto(value)
