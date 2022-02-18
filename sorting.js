@@ -76,9 +76,10 @@ function insertInto(completedArray) {
     const template = document.getElementById("postTemplate")
     for (let i = 0; i < completedArray.length; i++) {
         let post = template.content.cloneNode(true)
+        let formDate = new Intl.DateTimeFormat("ru-RU").format(completedArray[i].dateOfPost)
         post.querySelector("h3").innerText = completedArray[i].author
         post.querySelector(".fieldForLike").innerText = `${completedArray[i].likes} likes`
-        post.querySelector(".fieldForDate").innerText = `${completedArray[i].dateOfPost.getDate()}.${completedArray[i].dateOfPost.getMonth()}.${completedArray[i].dateOfPost.getFullYear()}`
+        post.querySelector(".fieldForDate").innerText = `${formDate}`
         parentNode.append(post)
     }
 }
