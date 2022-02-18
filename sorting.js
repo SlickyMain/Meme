@@ -23,12 +23,15 @@ function requestToServer() {
         return res.json()
     })
     .then(value => {
-        console.log(value)
         listOfPosts.push(...value)
         porcionOfPosts = value.length
         loadedAlready += value.length
         for (kee of listOfPosts) {
-            kee.dateOfPost = new Date (kee.dateOfPost)
+            kee.dateOfPost = kee.dateOfPost.split(".", 3)
+            kee.dateOfPost[2] = kee.dateOfPost[2].substr(0, 4)
+            kee.dateOfPost = [kee.dateOfPost[2], kee.dateOfPost[1], kee.dateOfPost[0]]
+            kee.dateOfPost = kee.dateOfPost.join("-")
+            kee.dateOfPost = new Date(kee.dateOfPost)
         }
         insertInto(value)
         if (listOfPosts.length > 50) {
