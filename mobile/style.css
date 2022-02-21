@@ -1,6 +1,6 @@
 ::-webkit-scrollbar {
     width: 0;
-  }
+}
 
 .container {
     margin-bottom: 50px;
@@ -218,7 +218,7 @@ li {
 
 .Act {
     display: inline-block;
-    margin: 5px 10px;
+    margin: 5px 5px;
 }
 
 .Act.yBorder {
@@ -246,4 +246,16 @@ li {
 
 .to28px {
     max-height: 28px;
+}
+
+@media screen and (min-width: 800px) {
+    .tagsList  {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+    .columnWrap {
+        margin-top: 10px;
+    }
 }
