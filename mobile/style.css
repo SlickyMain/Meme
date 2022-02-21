@@ -1,5 +1,17 @@
-body {
+::-webkit-scrollbar {
+    width: 0;
+  }
+
+.container {
+    margin-bottom: 50px;
+}
+
+body.yellow {
     background-color: #FBBC04;
+}
+
+body.white {
+    background-color: #FFF;
 }
 
 h3 {
@@ -39,6 +51,10 @@ li {
     align-items: center;
 }
 
+.columnWrap {
+    margin-top: 70px;
+}
+
 .substrate {
     width: 90%;
     max-width: 500px;
@@ -74,7 +90,9 @@ li {
     font-size: 18px;
     line-height: 21px;
     letter-spacing: -0.33px;
-}
+} 
+
+/* Список языков */
 
 .localeFlag {
     width: 30px;
@@ -91,7 +109,7 @@ li {
     font-size: 18px;
 }
 
-.dropdown {
+.dropdown.fixed {
     position: fixed;
     bottom: 10px;
 }
@@ -100,13 +118,132 @@ li {
     text-decoration: underline;
 }
 
-#uploadInput {
+/* Аватарка */
+
+#visibleUploader {
+    cursor: pointer;
+    height: 180px;
+    width: 180px;
     border: 12px solid #FBBC04;
     border-radius: 200px;
-    padding: 5px 5px 5px 5px;
-    height: 160px;
-    width: 160px;
-    background: url(assets/VK.png) no-repeat 3px 1px;
-    background-size: contain;
-    margin: 30px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#imagePreviewField {
+    border-radius: 200px;
+    width: 100%;
+    height: 100%;
+}
+
+#uploadInput {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+}
+
+/* Лента */
+
+.tagsList {
+    position: absolute;
+    height: 40px;
+    left: 0px;
+    top: 20px;
+    overflow-x: auto;
+    align-items: center;
+    max-width: 100%;
+}
+
+.subTags {
+    background-color: #FBBC04;
+    margin: 0 10px;
+    border-radius: 7px;
+    padding: 3px 4px;
+    opacity: 0.5;
+    white-space: nowrap;
+}
+
+.subTags.active {
+    opacity: 1;
+}
+
+/* Трендовые теги */
+
+.postTag {
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 500;
+}
+
+.postPicture {
+    width: 100%;
+    height: 100%;
+}
+
+.openMemes, .moreActions {
+    width: 100%;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    font-size: 14px;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 21px;
+    padding: 5px 0;
+    color: #6C757D;
+}
+
+.otherTags {
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.linkToTag {
+    margin: 3px 5px;
+}
+
+/* Пост от юзера */
+
+.miniAvatar {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #C4C4C4;
+    border-radius: 4px;
+}
+
+.memeImage {
+    width: 100%;
+}
+
+.Act {
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+.Act.yBorder {
+    background-color: #FBBC04;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.menuActions {
+    background-color: #FFF;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 50px;
+}
+
+.usualGrey {
+    color: #808080;
+}
+
+.to28px {
+    max-height: 28px;
 }

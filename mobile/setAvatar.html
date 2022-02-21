@@ -27,41 +27,28 @@
                     <div class="col-sm-12 substrate">
                         <form action="#" class="mt-5" id="parentNode">
                             <p class="ms-4 registerText pb-3">
-                                Регистрация
+                                Фото профиля
                             </p>
-                            <div class="ms-4 me-4 mb-4">
-                                <label for="Login" class="form-label">Имя пользователя</label>
-                                <input type="text" class="form-control" id="Login" placeholder="Username">
+                            <div class="d-flex justify-content-center avatarPlace mt-4">
+                                <label for="uploadInput" id="visibleUploader">
+                                    <img src="assets/upload3.png" id="imagePreviewField">
+                                </label>
+                                <input id="uploadInput" type="file" name="myFiles">
                             </div>
-                            <div class="ms-4 me-4 mb-4">
-                                <label for="Email" class="form-label">Электронная почта</label>
-                                <input type="email" class="form-control" id="Email" placeholder="Email">
-                            </div>
-                            <div class="forButton d-flex justify-content-center mb-3">
-                                <button type="submit" id="registerButton">
-                                    <a href="#" class="buttonText p-2" id="makeNewUser">
-                                        Регистрация
+                            <div class="forButton d-flex justify-content-center mt-5 mb-5">
+                                <button type="submit" id="avatarButton">
+                                    <a href="#" class="buttonText p-2" id="noID">
+                                        Сохранить
                                     </a>
                                 </button>
-                            </div>
-                            <div class="iconsList m-4 d-flex justify-content-around align-items-center">
-                                <a href="#"><img class="icons" src="assets/Facebook.png" alt="Facebook"></a>
-                                <a href="#"><img class="icons" src="assets/Google.png" alt="Google"></a>
-                                <a href="#"><img class="icons" src="assets/Apple.png" alt="Apple"></a>
-                                <a href="#"><img class="icons" src="assets/VK.png" alt="VK"></a>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="altLinks text-center mt-4">
-                    <div class="row">
-                        <p class="altText">
-                            Уже есть аккаунт?
-                        </p>
-                    </div>
                     <div class="row mt-1">
                         <p class="altText">
-                            <a href="#">Войти</a>
+                            <a href="#">Пропустить</a>
                         </p>
                     </div>
                 </div>

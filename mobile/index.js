@@ -1,16 +1,14 @@
-document.querySelector("#makeNewUser").onclick = chooseAvatar
+const inputField = document.getElementById("uploadInput")
 
-function chooseAvatar() {
-    const template = document.getElementById("avatarWindow")
-    const parentNode = document.getElementById("parentNode")
-    while (parentNode.children.length) {
-        parentNode.firstElementChild.remove()
+inputField.addEventListener("change", () => {
+    console.log(inputField.files)
+    const itsImage = document.getElementById("imagePreviewField")
+    let fileImage = inputField.files[0]
+    if (fileImage) {
+        const reader = new FileReader()
+        reader.addEventListener("load", () => {
+            itsImage.setAttribute("src", reader.result)
+        })
+        reader.readAsDataURL(fileImage)
     }
-    let avatar = template.content.cloneNode(true)
-    avatar.querySelector(".registerText").innerText = "Фото профиля"
-    avatar.querySelector(".avatarPlace").innerHTML = `
-    <p>
-    <input id="uploadInput" type="file" name="myFiles" multiple>
-    </p>`
-    parentNode.append(avatar)
-}
+})
