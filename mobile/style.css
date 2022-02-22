@@ -64,11 +64,12 @@ li {
     border-radius: 4px;
 }
 
-#registerButton, #avatarButton {
+.registerButton, #avatarButton {
     background-color: #FBBC04;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: fit-content;
     width: 45%;
     max-height: 50px;
     border-radius: 5px;
@@ -175,6 +176,9 @@ li {
     font-size: 18px;
     line-height: 18px;
     font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .postPicture {
@@ -183,7 +187,9 @@ li {
 }
 
 .openMemes, .moreActions {
+    min-width: fit-content;
     width: 100%;
+    max-width: 800px;
     border-radius: 4px;
     background-color: #FFFFFF;
     font-size: 14px;
@@ -191,6 +197,14 @@ li {
     line-height: 21px;
     padding: 5px 0;
     color: #6C757D;
+}
+
+.subscribePost {
+    background-color: #FBBC04;
+    color: #000000;
+    text-decoration: none;
+    width: 100%;
+    /* Текст для желтых кнопок */
 }
 
 .otherTags {
@@ -207,6 +221,7 @@ li {
 .miniAvatar {
     display: inline-block;
     width: 24px;
+    min-width: 24px;
     height: 24px;
     background-color: #C4C4C4;
     border-radius: 4px;
@@ -218,10 +233,10 @@ li {
 
 .Act {
     display: inline-block;
-    margin: 5px 5px;
+    margin: 5px 15px;
 }
 
-.Act.yBorder {
+.yBorder {
     background-color: #FBBC04;
     display: flex;
     align-items: center;
@@ -237,7 +252,7 @@ li {
     bottom: 0px;
     left: 0px;
     width: 100%;
-    height: 50px;
+    height: 60px;
 }
 
 .usualGrey {
@@ -258,4 +273,65 @@ li {
     .columnWrap {
         margin-top: 10px;
     }
+}
+
+.toNormalSize {
+    min-width: 50px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.maximumWidthHeight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+}
+
+.customRow {
+    border-top: 1px solid #B3B3B3;
+}
+
+/* Загрузка нового мема */
+
+#visibleUploaderMeme {
+    cursor: pointer;
+    width: 100%;
+    min-height: 320px;
+    min-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #C4C4C4;
+    border-radius: 4px;
+}
+
+#MemePreviewField {
+    width: 100%;
+    height: 100%;
+}
+
+#uploadMeme {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+}
+
+.needRelative {
+    position: relative;
+}
+
+.textEditorIcon {
+    position: absolute;
+    left: 4%;
+    bottom: 2%;
+}
+
+#memeDescription {
+    width: 100%;
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
 }
