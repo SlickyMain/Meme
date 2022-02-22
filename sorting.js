@@ -5,14 +5,16 @@ let howMuchUserSaw = 0
 const parentNode = document.getElementById("postField")
 const placeholdForCounter = "Количество элементов на странице: "
 const counter = document.getElementById("counter")
-const watcher = new IntersectionObserver((entry) => {
+const watcher = new IntersectionObserver(entry => {
     entry.forEach(result => {
         if (result.target.dataset.seen == "false" && result.isIntersecting) {
             howMuchUserSaw += 1
             result.target.dataset.seen = "true"
+            result.target.classList.remove("new-post")
+            result.target.classList.add("old-post")
             console.log(howMuchUserSaw)
         }
-    },)    
+    })
 }, { root: null, threshold: 1})
 
 document.querySelector("#sortAuthor").onclick = sortByAuthor
@@ -48,7 +50,7 @@ function requestToServer() {
                 loadedAlready -= porcionOfPosts
             }
             countElems(placeholdForCounter)
-            let watcherTarget = document.querySelectorAll(".mix-blocks")
+            let watcherTarget = document.querySelectorAll(".mix-blocks.new-post")
             watcherTarget.forEach(item => watcher.observe(item))
         })
 }
