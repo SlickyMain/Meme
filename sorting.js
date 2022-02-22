@@ -1,9 +1,20 @@
 let porcionOfPosts
 let listOfPosts = []
 let loadedAlready = 0
+let howMuchUserSaw = 0
 const parentNode = document.getElementById("postField")
 const placeholdForCounter = "Количество элементов на странице: "
 const counter = document.getElementById("counter")
+const watcher = new IntersectionObserver((entry) => {
+    entry.forEach(result => {
+        if (result.target.dataset.seen = "false") {
+            howMuchUserSaw += 1
+            result.target.dataset.seen = "true"
+            console.log(howMuchUserSaw)
+        }
+    })
+    howMuchUserSaw += 1
+}, { root: null, threshold: 1 })
 
 document.querySelector("#sortAuthor").onclick = sortByAuthor
 document.querySelector("#sortLikes").onclick = sortByLikes
@@ -19,29 +30,31 @@ window.addEventListener("scroll", () => {
 
 function requestToServer() {
     fetch("http://meme.gcqadev.ru/post.json")
-    .then(res => {
-        return res.json()
-    })
-    .then(value => {
-        listOfPosts.push(...value)
-        porcionOfPosts = value.length
-        loadedAlready += value.length
-        for (kee of value) {
-            kee.dateOfPost = kee.dateOfPost.split(".")
-            kee.dateOfPost[2] = kee.dateOfPost[2].substr(0, 4)
-            kee.dateOfPost = [kee.dateOfPost[2], kee.dateOfPost[1], kee.dateOfPost[0]].join("-")
-            kee.dateOfPost = new Date(kee.dateOfPost)
-        }
-        insertInto(value)
-        if (listOfPosts.length > 50) {
-            deleteElems(porcionOfPosts)
-            loadedAlready -= porcionOfPosts
-        }
-        countElems(placeholdForCounter)
-    })
+        .then(res => {
+            return res.json()
+        })
+        .then(value => {
+            listOfPosts.push(...value)
+            porcionOfPosts = value.length
+            loadedAlready += value.length
+            for (kee of value) {
+                kee.dateOfPost = kee.dateOfPost.split(".")
+                kee.dateOfPost[2] = kee.dateOfPost[2].substr(0, 4)
+                kee.dateOfPost = [kee.dateOfPost[2], kee.dateOfPost[1], kee.dateOfPost[0]].join("-")
+                kee.dateOfPost = new Date(kee.dateOfPost)
+            }
+            insertInto(value)
+            if (listOfPosts.length > 50) {
+                deleteElems(porcionOfPosts)
+                loadedAlready -= porcionOfPosts
+            }
+            countElems(placeholdForCounter)
+            const watcherTarget = document.querySelector(".mix-blocks")
+            watcher.observe(watcherTarget)
+        })
 }
 
-function countElems (placehold) {
+function countElems(placehold) {
     counter.innerHTML = placehold + parentNode.children.length
 }
 
@@ -49,7 +62,7 @@ function sortByAuthor() {
     let sortedByAuthor = listOfPosts.sort((a, b) => a.author > b.author ? 1 : -1)
     document.getElementById("postField").innerHTML = ""
     insertInto(sortedByAuthor)
-    
+
 }
 
 function sortByDate() {
@@ -82,4 +95,3 @@ function insertInto(completedArray) {
         parentNode.append(post)
     }
 }
-
