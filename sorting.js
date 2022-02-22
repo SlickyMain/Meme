@@ -7,14 +7,13 @@ const placeholdForCounter = "Количество элементов на стр
 const counter = document.getElementById("counter")
 const watcher = new IntersectionObserver((entry) => {
     entry.forEach(result => {
-        if (result.target.dataset.seen = "false") {
+        if (result.target.dataset.seen == "false" && result.isIntersecting) {
             howMuchUserSaw += 1
             result.target.dataset.seen = "true"
             console.log(howMuchUserSaw)
         }
-    })
-    howMuchUserSaw += 1
-}, { root: null, threshold: 1 })
+    },)    
+}, { root: null, threshold: 1})
 
 document.querySelector("#sortAuthor").onclick = sortByAuthor
 document.querySelector("#sortLikes").onclick = sortByLikes
@@ -49,8 +48,8 @@ function requestToServer() {
                 loadedAlready -= porcionOfPosts
             }
             countElems(placeholdForCounter)
-            const watcherTarget = document.querySelector(".mix-blocks")
-            watcher.observe(watcherTarget)
+            let watcherTarget = document.querySelectorAll(".mix-blocks")
+            watcherTarget.forEach(item => watcher.observe(item))
         })
 }
 
